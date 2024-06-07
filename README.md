@@ -14,18 +14,19 @@ Este repositorio contiene un pequeño programa en Python que utiliza Flask para 
 ├── Dockerfile
 └── app.py
 ```
-
 ### Dockerfile
-
+```dockerfile
 FROM ubuntu
 RUN apt-get update && apt-get install -y python3 python3-pip
 RUN rm /usr/lib/python3.*/EXTERNALLY-MANAGED
 RUN pip install flask
 COPY app.py /opt/
 ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=8080
+```
 
 ### app.py
 
+```python
 import os
 from flask import Flask
 
@@ -41,6 +42,7 @@ def hello():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
+```
 
 ## Instrucciones de uso
 
@@ -48,13 +50,17 @@ if __name__ == "__main__":
 
 Para construir la imagen Docker, ejecuta el siguiente comando en el directorio donde se encuentra el `Dockerfile`:
 
+```sh
 docker build -t flask-app .
+```
 
 ### Comprobar que la imagen Docker existe
 
 Para verificar que la imagen Docker ha sido creada exitosamente, puedes listar las imágenes Docker en tu sistema con el siguiente comando:
 
+```sh
 docker images
+```
 
 Deberías ver `flask-app` listado en las imágenes disponibles.
 
@@ -62,7 +68,9 @@ Deberías ver `flask-app` listado en las imágenes disponibles.
 
 Una vez que la imagen ha sido construida, puedes ejecutar el contenedor con el siguiente comando:
 
+```sh
 docker run -p 8080:8080 flask-app
+```
 
 ### Acceder a la aplicación
 
@@ -78,3 +86,4 @@ Para ver el segundo endpoint, ve a `http://localhost:8080/Como%20estas`. Deberí
 ## Autor
 
 Mario González Solas
+```

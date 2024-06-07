@@ -87,3 +87,5 @@ Para ver el segundo endpoint, ve a `http://localhost:8080/Como%20estas`. Deberí
 
 Mario González Solas
 ```
+https://www.linkedin.com/in/mario-gonz%C3%A1lez-solas/
+```
